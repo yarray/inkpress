@@ -29,7 +29,7 @@ ability to embed nearly anything to the presentations.
 
 ## Tutorial
 
-> For who are impatient: Check the demo, it is quite simple.
+*For who are impatient: Check the demo, it is quite simple.*
 
 ### Suggested workflow:
 
@@ -46,7 +46,7 @@ part of the id, so "1" will be after "rect-0").
 4. Build the html. Add reference for jquery and impress, then add reference to
 inkpress.js and inkpress.css. Invoke inkpress.init(svgPath, panelSize) after
 the page is loaded.
-5. Now view the html. *Notice* that the page should be viewed under a
+5. Now view the html. **Notice** that the page should be viewed under a
 web server since I use ajax to grab svg and insert into html (If you have
 better idea please leave a comment). You should be able to move around as you
 designed in the svg. Hooray!
