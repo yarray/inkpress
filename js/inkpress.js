@@ -66,20 +66,21 @@ var inkpress = (function() {
         }
     }
 
-    var init = function(svg_url) {
-        $.get(svg_url, function(data) {
-            var panelSize = {
-                width: 1280.0,
-                height: 800.0
+    var init = function(svg_url, settings) {
+        if (!settings) {
+            var settings = {
+                width: 1024,
+                height: 768
             }
-
+        }
+        $.get(svg_url, function(data) {
             var panel = $('#impress');
             var bg = data.childNodes[1];
 
             // set the cover page and the background image
             var full = createStep('full').appendTo(panel).append(bg);
-            full.height(panelSize.height);
-            full.width(panelSize.width);
+            full.height(settings.height);
+            full.width(settings.width);
 
             // for each bbox in trace ordered by id, create or set steps
             var trace = getTraceLayer(bg);
@@ -92,7 +93,7 @@ var inkpress = (function() {
                 var params = getLoc(
                     $(bbox).position(),
                     getShape(bbox),
-                    panelSize
+                    settings
                 );
 
                 // find existing step, if exist than set params, else create new
