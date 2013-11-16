@@ -5,17 +5,17 @@ Using inkscape to build the big graph of impress.js
 
 ## Description
 
+There is Sozi that mimics prezi functionalities as an inkscape plugin. But I
+think that inkscape alone cannot support presentation well since it is hard
+to get uniform text styles or create animations and svg is not as flexible as
+flash or html/css/js. 
+
 Impress.js is great, even greater than prezi because you can use all the good
 stuffs of html/js/css to get fantastic effects and these technologies are
 towards future (unlike flash used by prezi). However, I feel upset to fill all
-the "data-x, data-y..." in impress.js. It is hard to calculate and until
+the "data-x, data-y..." in impress.js. They are hard to calculate and until
 refreshing browser you cannot see the overall effects, which contradicts to my
 taste.
-
-There is Sozi that mimics prezi functionalities as inkscape plugin. But I think
-that inkscape merely cannot support presentation well since it is hard to get
-uniform text styles or create animations and it is impossible for svg to
-combine the whole range of good stuffs as html/css/js do.
 
 In my opinion the most exciting point of presentations on canvas like
 impress.js, jmpress.js (which I'm also considering) or prezi is that they can
@@ -23,9 +23,7 @@ offer information on a big graph and present in a time line in hierarchical
 manner. Presentations on canvas should not merely be something that induces
 "wow". It should be used for better expression of non-linear ideas. Thus the
 big graphs should be the very center of the processes of making such
-presentations, which I believe inkscape is a ideal tool to deal with. On the
-other hand, tools based on html5 like impress.js cannot be replaced for its
-ability to embed nearly anything to the presentations.
+presentations, which I believe inkscape is a ideal tool to deal with.
 
 ## Tutorial
 
@@ -53,9 +51,10 @@ designed in the svg. Hooray!
 6. Modify the html to add some steps containing text, whose styles can be
 controlled uniformly by css. The steps named "step-{id}" will be linked to the
 rectangle with "{id}" as its id.
-7. Now it is time to make the Trace layer in the svg file invisible. Add
-additional layers to the svg file containing those you'd like to present on
-the screen.
+7. Now it is time to make the Trace layer in the svg file invisible (Set the
+opacity to 0 **INSTEAD OF** simply set it invisible for a bug of placement).
+Add additional layers to the svg file containing those you'd like to present
+on the screen.
 
 ## Further...
 
