@@ -1,0 +1,9 @@
+div#full {
+    z-index: -1;
+    /* svg position is incorrect without this*/
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
