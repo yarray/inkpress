@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=1280" />
+<link rel="stylesheet" href="stylesheets/inkpress.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+<div id="impress">
+    <!--pre exist steps will be preserved, id should be step-{trace rect id}-->
+    <div class="step" id="step-3">
+        <h1>Hello World</h1>
+    </div>
+</div>
+<script src="javascripts/lib/impress.js"></script>
+<script src="javascripts/lib/jquery-2.0.3.min.js"></script>
+<script src="javascripts/inkpress.js"></script>
+<script type="text/javascript">
+$(function() { 
+    inkpress.init('demo.svg', {
+        width: 1280,
+        height: 800
+    });
+})
+</script>
+</body>
+</html>
