@@ -1,3 +1,6 @@
+---
+title: demo
+---
 <!doctype html>
 <html>
   <head>
@@ -33,44 +36,46 @@
 
 <p>The svg used in demo:</p>
 <img src="./demo.svg"></img>
-<p>With "Trace" layer</p>
+<p>With "Trace" layer:</p>
 <img src="./demo-trace.svg"></img>
 <p>The result presentation is <a href="./demo.html#/full">here</a></p>
 <p>To see the effect more clearly, see the presentation with "Trace" shown <a
     href="./demo-trace.html#/full">here</a></p>
-<p>html code of the demo page is here:</p>
+<p>The html code of the demo page is here:</p>
 <div>
-<pre><code class="html">
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;&lt;/title&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=1280&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;stylesheets/inkpress.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; charset=&quot;utf-8&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id=&quot;impress&quot;&gt;
-    &lt;!--pre exist steps will be preserved, id should be step-{trace rect id}--&gt;
-    &lt;div class=&quot;step&quot; id=&quot;step-3&quot;&gt;
-        &lt;h1&gt;Hello World&lt;/h1&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;script src=&quot;javascripts/lib/impress.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;javascripts/lib/jquery-2.0.3.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;javascripts/inkpress.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
+{% highlight html linenos=table %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=1280" />
+<link rel="stylesheet" href="stylesheets/inkpress.css" 
+     type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+<div id="impress">
+    <!--pre exist steps will be preserved, -->
+    <!-- id should be step-{trace rect id} -->
+    <div class="step" id="step-3">
+        <h1>Hello World</h1>
+    </div>
+</div>
+<script src="javascripts/lib/impress.js"></script>
+<script src="javascripts/lib/jquery-2.0.3.min.js"></script>
+<script src="javascripts/inkpress.js"></script>
+<script type="text/javascript">
 $(function() { 
-    inkpress.init(&#39;demo.svg&#39;, {
+    inkpress.init('demo.svg', {
         width: 1280,
         height: 800
     });
 })
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+</script>
+</body>
+</html>
+{% endhighlight %}
 </div>
       </section>
       <footer>

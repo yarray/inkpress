@@ -33,44 +33,76 @@
 
 <p>The svg used in demo:</p>
 <img src="./demo.svg"></img>
-<p>With "Trace" layer</p>
+<p>With "Trace" layer:</p>
 <img src="./demo-trace.svg"></img>
 <p>The result presentation is <a href="./demo.html#/full">here</a></p>
 <p>To see the effect more clearly, see the presentation with "Trace" shown <a
     href="./demo-trace.html#/full">here</a></p>
-<p>html code of the demo page is here:</p>
+<p>The html code of the demo page is here:</p>
 <div>
-<pre><code class="html">
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;&lt;/title&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=1280&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;stylesheets/inkpress.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; charset=&quot;utf-8&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id=&quot;impress&quot;&gt;
-    &lt;!--pre exist steps will be preserved, id should be step-{trace rect id}--&gt;
-    &lt;div class=&quot;step&quot; id=&quot;step-3&quot;&gt;
-        &lt;h1&gt;Hello World&lt;/h1&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;script src=&quot;javascripts/lib/impress.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;javascripts/lib/jquery-2.0.3.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;javascripts/inkpress.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-$(function() { 
-    inkpress.init(&#39;demo.svg&#39;, {
-        width: 1280,
-        height: 800
-    });
-})
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="html"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;apple-mobile-web-app-capable&quot;</span> <span class="na">content=</span><span class="s">&quot;yes&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=1280&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;stylesheets/inkpress.css&quot;</span> 
+     <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;impress&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--pre exist steps will be preserved, --&gt;</span>
+    <span class="c">&lt;!-- id should be step-{trace rect id} --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;step&quot;</span> <span class="na">id=</span><span class="s">&quot;step-3&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascripts/lib/impress.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascripts/lib/jquery-2.0.3.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascripts/inkpress.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="nx">inkpress</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s1">&#39;demo.svg&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">width</span><span class="o">:</span> <span class="mi">1280</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">800</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</td></tr></table>
 </div>
       </section>
       <footer>

@@ -64,11 +64,35 @@ code, pre {
 }
 
 pre {
-  padding:8px 15px;
-  background: #f8f8f8;  
-  border-radius:5px;
-  border:1px solid #e5e5e5;
+  padding:20px 15px;
+/*  background: #f8f8f8;  */
+  /*border:1px solid #e5e5e5;*/
   overflow-x: auto;
+}
+
+pre .lineno {
+    margin-right: 10px;
+    color: #999999;
+}
+
+pre span, .linenodiv code {
+    line-height: 25px;
+}
+
+td.code, td.linenos {
+    padding: 0;
+}
+
+td.code pre {
+    border-left: none;
+}
+
+td.linenos pre {
+    border-right: none;
+}
+
+td.linenos pre code {
+    color: #999999;
 }
 
 table {
