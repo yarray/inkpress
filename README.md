@@ -6,7 +6,7 @@ Using inkscape to build the big graph of impress.js
 ## Description
 
 There is Sozi that mimics prezi functionalities as an inkscape plugin. But I
-think that inkscape alone cannot support presentation well since it is hard
+think that svg alone cannot support presentation well since it is hard
 to get uniform text styles or create animations and svg is not as flexible as
 flash or html/css/js. 
 
@@ -27,7 +27,7 @@ presentations, which I believe inkscape is a ideal tool to deal with.
 
 ## Tutorial
 
-*For who are impatient: Check the demo, it is quite simple.*
+*For who are impatient: Check the [demo](http://yarray.github.io/inkpress/), it is quite simple.*
 
 ### Suggested workflow:
 
@@ -63,6 +63,13 @@ are quite limited and there are a lot of flaws. I will take more time to
 improve it if time permits. All kinds of discussion and contributions are
 highly welcomed. Please feel free to contact me by sending emails to
 08to09@gmail.com.
+
+## Thanks
+
+Thanks to [impress.js](http://bartaz.github.io/impress.js/) and
+[inkscape](http://inkscape.org/) which are used.  
+Thanks to [Sozi](http://sozi.baierouge.fr/) and [prezi](prezi.com) which
+brought inspiration.
 
 
 Anran Yang  
