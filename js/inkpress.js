@@ -78,7 +78,7 @@ var inkpress = (function() {
             var bg = data.childNodes[1];
 
             // set the cover page and the background image
-            var full = createStep('full').appendTo(panel).append(bg);
+            var full = createStep('full').prependTo(panel).append(bg);
             full.height(settings.height);
             full.width(settings.width);
 
