@@ -73,10 +73,9 @@ var inkpress = (function() {
                 height: 768
             }
         }
-        $.get(svg_url, function(data) {
-            var panel = $('#impress');
-            var bg = data.childNodes[1];
 
+        function init_with(bg) {
+            var panel = $('#impress');
             // set the cover page and the background image
             var full = createStep('full').prependTo(panel).append(bg);
             full.height(settings.height);
@@ -104,9 +103,18 @@ var inkpress = (function() {
                     current = createStep(id, params).insertAfter(current);
                 }
             });
-
             impress().init();
-        });
+        }
+
+        var cache = $('svg.cache');
+        if (cache.length > 0) {
+            cache.show();
+            init_with(cache);
+        } else {
+            $.get(svg_url, function(data) {
+                init_with(data.childNodes[1]);
+            });
+        }
     };
 
     return {
