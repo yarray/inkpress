@@ -1,16 +1,16 @@
 #! /usr/bin/env python
 '''
-compiler from svg and existing html (optional) to an amazing impress.js deck
+compiler from svg and existing html (optional) to an amazing impress.js deck (powered by inkpress)
 
 Usage:
-    compile.py [-t template] [-o output] <svg> [<input>]
+    compile.py [-t template] [-o output] [-b svg] [<input>]
     compile.py (-h | --help)
 
 Options:
     -h --help               Show help screen
     -o output               Output html file, if not given then print to stdout
     -t template             Template file to be used
-    svg                     The svg file as the background and trace
+    -b svg                  The svg file as the background and trace
     input                   Can be html or markdown, if not given template
                             will be used
 '''
@@ -64,9 +64,6 @@ def process_md(md_file, template_text):
 
 if __name__ == '__main__':
     args = docopt(__doc__)
-    # Here I only cache the svg in html file, waiting for js to deal with it
-    with open(args['<svg>']) as f:
-        svg = bs(f.read()).svg
 
     template = args['-t'] if args['-t'] else default_template
     in_file = args['<input>'] if args['<input>'] else template
@@ -78,7 +75,11 @@ if __name__ == '__main__':
         with open(in_file) as f:
             doc = bs(f.read())
 
-    insert_svg(doc, svg)
+    if args['-b']:
+        # Here I only cache the svg in html file, waiting for js to deal with it
+        with open(args['-b']) as f:
+            svg = bs(f.read()).svg
+        insert_svg(doc, svg)
 
     if args['-o']:
         with open(args['-o'], 'w') as f:
