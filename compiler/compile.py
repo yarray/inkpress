@@ -3,35 +3,82 @@
 compiler from svg and existing html (optional) to an amazing impress.js deck
 
 Usage:
-    compile.py [-o output] <svg> [<html>]
+    compile.py [-t template] [-o output] <svg> [<input>]
     compile.py (-h | --help)
 
 Options:
     -h --help               Show help screen
     -o output               Output html file, if not given then print to stdout
+    -t template             Template file to be used
     svg                     The svg file as the background and trace
-    html                    An existing html, if given, necessary content will be appended to it
+    input                   Can be html or markdown, if not given template
+                            will be used
 '''
 
 from bs4 import BeautifulSoup as bs
 from docopt import docopt
+import subprocess
+import os
+
+default_template = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), 'template.html'))
+
+
+def insert_svg(doc, svg):
+    svg['class'] = 'cache'
+    svg['style'] = 'display: none'
+
+    exists = doc.select('svg.cache')
+    if len(exists) > 0:
+        exists.extract()
+    doc.body.insert(0, svg)
+
+
+def process_md(md_file, template_text):
+    templ = bs(template_text)
+    plain_doc = bs(subprocess.check_output(
+        'markdown ' + md_file, shell=True))
+
+    container = templ.select('#impress')[0]
+
+    def new_step(i):
+        new = bs('<div></div>')
+        new.div['class'] = 'step'
+        new.div['id'] = i
+        return new.div
+
+    i = 0
+    current = new_step(i)
+    for node in plain_doc.body.children:
+        if not hasattr(node, 'name'):
+            continue
+        elif node.name == 'hr':
+            container.append(current)
+            current = new_step(i)
+        else:
+            current.append(node)
+        i += 1
+    container.append(current)
+    return templ
+
 
 if __name__ == '__main__':
     args = docopt(__doc__)
     # Here I only cache the svg in html file, waiting for js to deal with it
     with open(args['<svg>']) as f:
         svg = bs(f.read()).svg
-        svg['class'] = 'cache'
-        svg['style'] = 'display: none'
 
-    html_file = args['<html>'] if args['<html>'] else 'template.html'
-    with open(html_file) as f:
-        doc = bs(f.read())
+    template = args['-t'] if args['-t'] else default_template
+    in_file = args['<input>'] if args['<input>'] else template
 
-    exists = doc.select('svg#cache')
-    if len(exists) > 0:
-        exists.extract()
-    doc.body.insert(0, svg)
+    if in_file.endswith('.md') or in_file.endswith('.markdown'):
+        with open(template) as f:
+            doc = process_md(in_file, f.read())
+    else:
+        with open(in_file) as f:
+            doc = bs(f.read())
+
+    insert_svg(doc, svg)
 
     if args['-o']:
         with open(args['-o'], 'w') as f:
