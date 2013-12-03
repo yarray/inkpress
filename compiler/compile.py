@@ -53,11 +53,11 @@ def process_md(md_file, template_text):
         if not hasattr(node, 'name'):
             continue
         elif node.name == 'hr':
+            i += 1
             container.append(current)
             current = new_step(i)
         else:
             current.append(node)
-        i += 1
     container.append(current)
     return templ
 
