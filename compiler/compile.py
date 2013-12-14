@@ -15,13 +15,19 @@ Options:
                             will be used
 '''
 
+import os
+import sys
+
+
+curdir = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(curdir, 'lib'))
+
 from bs4 import BeautifulSoup as bs
 from docopt import docopt
-import subprocess
-import os
+import markdown2
 
-default_template = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), 'template.html'))
+
+default_template = os.path.abspath(os.path.join(curdir, 'template.html'))
 
 
 def insert_svg(doc, svg):
@@ -36,8 +42,7 @@ def insert_svg(doc, svg):
 
 def process_md(md_file, template_text):
     templ = bs(template_text)
-    plain_doc = bs(subprocess.check_output(
-        'markdown ' + md_file, shell=True))
+    plain_doc = bs(markdown2.main(md_file))
 
     container = templ.select('#impress')[0]
 
